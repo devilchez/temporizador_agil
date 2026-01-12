@@ -18,8 +18,8 @@ with open(css_path) as f:
 st.markdown(
     """
     <div class="header">
-        <h1>⏱️ Digital Agile Timer</h1>
-        <p>Impulsando foco, agilidad y transformación digital</p>
+        <h1>⏱️Daily, Review, Retro, Mejora Continua</h1>
+        <p>Digital Agile Timer</p>
     </div>
     """,
     unsafe_allow_html=True
