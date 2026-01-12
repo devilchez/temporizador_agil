@@ -5,7 +5,7 @@ Timer estético y funcional desarrollado en **Streamlit**, inspirado en principi
 
 ## 🚀 Características
 - Diseño moderno tipo dashboard digital
-- Timer configurable (ideal para Pomodoro o sprints)
+- Timer configurable
 - Estructura modular y escalable
 - Listo para desplegar en Streamlit Cloud
 
