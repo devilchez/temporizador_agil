@@ -26,7 +26,7 @@ st.markdown(
 )
 
 # Selector de tiempo
-minutes = st.slider("Duración del timer (minutos)", 5, 60, 25)
+minutes = st.slider("Duración del timer (minutos)", 5, 15, 15)
 
 # Mostrar timer
 show_timer(minutes)
