@@ -4,7 +4,7 @@ from pathlib import Path
 
 # Configuración de la página
 st.set_page_config(
-    page_title="Digital Agile Timer",
+    page_title="Daily",
     page_icon="⏱️",
     layout="centered"
 )
@@ -18,8 +18,8 @@ with open(css_path) as f:
 st.markdown(
     """
     <div class="header">
-        <h1>⏱️ Digital Agile Timer</h1>
-        <p>Daily</p>
+        <h1>⏱️ Daily</h1>
+        <p>Digital Agile Timer</p>
     </div>
     """,
     unsafe_allow_html=True
