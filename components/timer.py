@@ -5,31 +5,56 @@ from utils.time_utils import format_time
 def show_timer(minutes: int):
     total_seconds = minutes * 60
 
+    # Inicialización de estados
+    if "remaining_seconds" not in st.session_state:
+        st.session_state.remaining_seconds = total_seconds
+
     if "running" not in st.session_state:
         st.session_state.running = False
 
-    col1, col2 = st.columns(2)
+    if "paused" not in st.session_state:
+        st.session_state.paused = False
 
+    col1, col2, col3 = st.columns(3)
+
+    # ▶ INICIAR / REANUDAR
     with col1:
-        if st.button("▶ Iniciar"):
+        if st.button("▶ Iniciar / Reanudar"):
             st.session_state.running = True
+            st.session_state.paused = False
 
+    # ⏸ PAUSA
     with col2:
+        if st.button("⏸ Pausa"):
+            st.session_state.running = False
+            st.session_state.paused = True
+
+    # ⏹ RESET
+    with col3:
         if st.button("⏹ Reset"):
             st.session_state.running = False
+            st.session_state.paused = False
+            st.session_state.remaining_seconds = total_seconds
 
     timer_placeholder = st.empty()
 
-    if st.session_state.running:
-        for remaining in range(total_seconds, -1, -1):
-            timer_placeholder.markdown(
-                f"""
-                <div class="timer">
-                    {format_time(remaining)}
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            time.sleep(1)
-        st.session_state.running = False
+    # Mostrar tiempo actual
+    timer_placeholder.markdown(
+        f"""
+        <div class="timer">
+            {format_time(st.session_state.remaining_seconds)}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
+    # Lógica de cuenta regresiva
+    if st.session_state.running and st.session_state.remaining_seconds > 0:
+        time.sleep(1)
+        st.session_state.remaining_seconds -= 1
+        st.experimental_rerun()
+
+    # Cuando termina
+    if st.session_state.remaining_seconds == 0:
+        st.session_state.running = False
+        st.session_state.paused = False
