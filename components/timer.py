@@ -52,7 +52,7 @@ def show_timer(minutes: int):
     if st.session_state.running and st.session_state.remaining_seconds > 0:
         time.sleep(1)
         st.session_state.remaining_seconds -= 1
-        st.experimental_rerun()
+        st.rerun()
 
     # Cuando termina
     if st.session_state.remaining_seconds == 0:
