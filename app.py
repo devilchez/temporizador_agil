@@ -19,7 +19,7 @@ st.markdown(
     """
     <div class="header">
         <h1>⏱️Daily, Review, Retro, Mejora Continua</h1>
-        <p>Digital Agile Timer</p>
+        <p>Temporizador Ágil</p>
     </div>
     """,
     unsafe_allow_html=True
