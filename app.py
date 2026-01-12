@@ -19,7 +19,7 @@ st.markdown(
     """
     <div class="header">
         <h1>⏱️ Digital Agile Timer</h1>
-        <p>Impulsando foco, agilidad y transformación digital</p>
+        <p>Daily</p>
     </div>
     """,
     unsafe_allow_html=True
